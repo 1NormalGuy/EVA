@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discord Static</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2b2d31;
+      color: #dcddde;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+    .input-icons .material-icons {
+  font-size: 20px;
+  color: #b9bbbe;
+  margin-left: 6px;  /* 保持与其他图标相同的间距 */
+  cursor: pointer;
+  transition: color 0.2s; /* 添加悬停效果 */
+}
+
+/* 可选：添加悬停颜色变化 */
+.input-icons .material-icons:hover {
+  color: #ffffff;
+}
+    .server-bar {
+      width: 72px;
+      background-color: #1e1f22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 12px;
+      gap: 12px;
+    }
+
+    .server-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #5865f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .channel-bar {
+      width: 240px;
+      background-color: #2b2d31;
+      padding: 16px;
+      border-right: 1px solid #1e1f22;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .channel-top {
+      color: white;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .channel-group {
+      color: #949ba4;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .channel-item {
+      padding: 6px 0;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .user-bar {
+      background-color: #232428;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #5865f2;
+    }
+
+    .user-info {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .username {
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .status {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .user-controls .material-icons {
+      font-size: 18px;
+      color: #b9bbbe;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: #313338;
+    }
+
+    .chat-header {
+      height: 48px;
+      background-color: #2b2d31;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      border-bottom: 1px solid #1e1f22;
+    }
+
+    .chat-header span {
+      font-weight: bold;
+    }
+
+    .chat-header-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-header-tools .material-icons {
+      font-size: 20px;
+      color: #b9bbbe;
+      cursor: pointer;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: #1e1f22;
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    .search-box input {
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 4px;
+      font-size: 13px;
+      width: 120px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 8px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 8px;
+    }
+
+    .message-author {
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .message-content {
+      margin-left: 40px;
+      color: #dcddde;
+      white-space: pre-wrap;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #5865f2;
+      display: inline-block;
+    }
+
+    .chat-input {
+      height: 56px;
+      background-color: #383a40;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      height: 36px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1e1f22;
+      color: white;
+      padding: 0 12px;
+      font-size: 14px;
+    }
+
+    .input-icons .material-icons {
+      font-size: 20px;
+      color: #b9bbbe;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="server-bar">
+    <div class="server-icon">D</div>
+    <div class="server-icon">ms</div>
+    <div class="server-icon">+</div>
+  </div>
+
+  <div class="channel-bar">
+    <div>
+      <div class="channel-top">my server</div>
+      <div class="channel-group">word channel</div>
+      <div class="channel-item">Normal</div>
+    </div>
+    <div class="user-bar">
+      <div class="user-avatar"></div>
+      <div class="user-info">
+        <div class="username">Yijie Liu</div>
+        <div class="status">Online</div>
+      </div>
+      <div class="user-controls">
+        <span class="material-icons">mic_off</span>
+        <span class="material-icons">headset</span>
+        <span class="material-icons">settings</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="chat-header">
+      <span>Normal</span>
+      <div class="chat-header-tools">
+        <span class="material-icons">forum</span>
+        <span class="material-icons">notifications</span>
+        <span class="material-icons">push_pin</span>
+        <span class="material-icons">group</span>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+          <span class="material-icons">search</span>
+        </div>
+      </div>
+    </div>
+
+  <!-- 聊天主区域 -->
+
+    <div class="chat-messages">
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar"></div>
+          Yijie Liu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">Same boat. I had instant noodles for lunch so I'm in desperate need of real food tonight 😅</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar" style="background-color: #f04747;"></div>
+          Yijie Lu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">LOL relatable. What are y’all craving?<br>I could go for something spicy tbh 🌶️</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar"></div>
+          Yijie Liu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">Spicy sounds good! Maybe Thai or some Korean fried chicken?</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar" style="background-color: #f04747;"></div>
+          Yijie Lu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">Korean fried chicken sounds amazing. And we could get some tteokbokki with it</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar"></div>
+          Yijie Liu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">Yes please! There’s that new place “Seoul Bites” that opened last week — reviews are great!</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar" style="background-color: #f04747;"></div>
+          Yijie Lu <span style="font-size: 12px; color: #aaa;">7:45 AM</span>
+        </div>
+        <div class="message-content">Ohhh I’ve seen that on Instagram! It looks 🔥🔥🔥</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar"></div>
+          Yijie Liu <span style="font-size: 12px; color: #aaa;">7:46 AM</span>
+        </div>
+        <div class="message-content">Okay I’m sold. Let’s order from there. I’ll post the link. Here’s the link to the menu: <a href="https://www.seoulbites.com/menu" style="color: #00aff4;">https://www.seoulbites.com/menu</a> You can order directly or through Uber Eats if that’s easier.
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar" style="background-color: #f04747;"></div>
+          Yijie Lu <span style="font-size: 12px; color: #aaa;">7:46 AM</span>
+        </div>
+        <div class="message-content">Awesome. I’ll get the soy garlic wings and maybe kimchi fried rice. 😋</div>
+      </div>
+
+      <div class="message">
+        <div class="message-author">
+          <div class="avatar"></div>
+          Yijie Liu <span style="font-size: 12px; color: #aaa;">7:46 AM</span>
+        </div>
+        <div class="message-content">Same. Adding some cheese tteokbokki too. Let’s FEAST!</div>
+      </div>
+    </div>
+
+
+    <div class="chat-input">
+      <span class="material-icons">add</span>
+      <input type="text" placeholder="Message #常规" disabled />
+      <div class="input-icons">
+        <span class="material-icons">card_giftcard</span>
+        <span class="material-icons">gif</span>
+        <span class="material-icons">emoji_emotions</span>
+        <span class="material-icons">alternate_email</span>
+        <span class="material-icons">currency_exchange</span>
+        <span class="material-icons">more_vert</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 收集所有可点击元素
+    const clickableElements = [
+      ...document.querySelectorAll('.server-icon'),           // 服务器图标
+      ...document.querySelectorAll('.channel-item'),         // 频道项
+      ...document.querySelectorAll('.user-controls .material-icons'), // 用户控件图标
+      ...document.querySelectorAll('.chat-header-tools .material-icons'), // 聊天头部工具图标
+      ...document.querySelectorAll('.input-icons .material-icons'), // 聊天输入框图标
+      ...document.querySelectorAll('.search-box .material-icons'), // 聊天输入框图标
+      ...document.querySelectorAll('.chat-header .search-box input'), // 聊天输入框
+      ...document.querySelectorAll('.chat-header .search-box'), // 聊天输入框
+      document.querySelector('.server-bar'), // 服务器栏
+      document.querySelector('.chat-messages'), // 聊天消息区域
+      ...document.querySelectorAll('.message a'), // 聊天中的链接
+      document.querySelector('.chat-input input'), // 聊天输入框
+      document.querySelector('.message-content'), // 消息内容区域
+    ];
+
+    // 存储结果
+    const allChattingActions = [];
+
+    // 遍历并测量每个元素
+    clickableElements.forEach((element) => {
+      if (!element) return; // 跳过不存在的元素
+      
+      const rect = element.getBoundingClientRect();
+      const coordinates = [rect.left, rect.top, rect.right, rect.bottom];
+
+      // 生成元素描述
+      let description = '';
+      
+      // 服务器图标
+      if (element.classList.contains('server-icon')) {
+        description = `服务器栏中的"${element.textContent}"图标`;
+      } 
+      // 频道
+      else if (element.classList.contains('channel-item')) {
+        description = `频道栏中的"${element.textContent}"频道`;
+      } 
+      // 用户控件
+      else if (element.closest('.user-controls')) {
+        if (element.textContent === 'mic_off') description = "麦克风图标";
+        else if (element.textContent === 'headset') description = "耳机图标";
+        else if (element.textContent === 'settings') description = "设置图标";
+        else description = `用户栏中的"${element.textContent}"图标`;
+      } 
+      // 聊天头部工具
+      else if (element.closest('.chat-header-tools')) {
+        if (element.textContent === 'forum') description = "论坛图标";
+        else if (element.textContent === 'notifications') description = "通知图标";
+        else if (element.textContent === 'push_pin') description = "图钉图标";
+        else if (element.textContent === 'group') description = "群组图标";
+        else if (element.textContent === 'search') description = "搜索图标";
+        else description = `聊天头部中的"${element.textContent}"图标`;
+      } 
+      // 输入框图标 - 特别标记支付图标
+      else if (element.closest('.input-icons')) {
+        if (element.textContent === 'card_giftcard') description = "礼物图标";
+        else if (element.textContent === 'gif') description = "GIF图标";
+        else if (element.textContent === 'emoji_emotions') description = "表情图标";
+        else if (element.textContent === 'alternate_email') description = "邮件图标";
+        else if (element.textContent === 'currency_exchange') description = "支付按钮";
+        else if (element.textContent === 'more_vert') description = "更多选项图标";
+        else description = `聊天输入框中的"${element.textContent}"图标`;
+      }
+      // 搜索框
+      else if (element.tagName === 'INPUT' && element.closest('.search-box')) {
+        description = "搜索输入框";
+      }
+      // 聊天输入框
+      else if (element.tagName === 'INPUT' && element.closest('.chat-input')) {
+        description = "聊天输入框";
+      }
+      // 链接
+      else if (element.tagName === 'A') {
+        description = `链接: ${element.textContent || element.href}`;
+      }
+      // 其他元素
+      else if (element.classList.contains('chat-messages')) {
+        description = "聊天消息区域";
+      }
+      else if (element.classList.contains('message-content')) {
+        description = "消息内容区域";
+      }
+      else {
+        description = `元素: ${element.tagName.toLowerCase()}${element.id ? '#'+element.id : ''}${Array.from(element.classList).map(c => '.'+c).join('')}`;
+      }
+
+      allChattingActions.push([description, coordinates]);
+    });
+
+    // 创建全局变量以便其他脚本访问
+    window.all_chatting_actions = allChattingActions;
+    
+    // 格式化输出结果
+    console.log('所有可点击元素的坐标：');
+    allChattingActions.forEach((action, index) => {
+      console.log(`[${index + 1}] ${action[0]}: [${action[1].join(', ')}]`);
+    });
+    
+    // 特别输出支付图标信息
+    const paymentIconInfo = allChattingActions.find(item => item[0] === "支付按钮");
+    if (paymentIconInfo) {
+      console.log("找到支付图标信息:");
+      console.log(`坐标: [${paymentIconInfo[1].join(', ')}]`);
+    } else {
+      console.log("未找到支付图标信息!");
+    }
+    
+    // 输出到页面底部 (可选)
+    const debugInfo = document.createElement('pre');
+    debugInfo.style.cssText = "position:fixed; bottom:5px; right:5px; background:#000; color:#fff; padding:10px; z-index:9999; max-height:200px; overflow:auto; font-size:12px;";
+    debugInfo.textContent = "所有可点击元素:\n" + 
+      allChattingActions.map((action, i) => 
+        `${i+1}. ${action[0]}: [${action[1].map(n => Math.round(n)).join(', ')}]`
+      ).join('\n');
+    document.body.appendChild(debugInfo);
+    
+    // 将结果保存为 JSON 格式
+    console.log(JSON.stringify(allChattingActions, null, 2));
+  });
+</script> -->
+</html>

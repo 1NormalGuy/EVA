@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example Mail</title>
+  <!-- 可以保留 Material Icons，也可用其他图标库 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      color: #202124;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 统一基础样式 */
+    button, input {
+      font-family: inherit;
+    }
+
+    /* 整体布局：左侧做一个垂直导航，右侧做一个垂直辅助栏，中间放邮件主体 */
+    .layout {
+      display: grid;
+      grid-template-columns: 80px auto 80px; 
+      grid-template-rows: 64px auto; 
+      height: 100vh;
+      grid-template-areas:
+        "header header header"
+        "nav main aside";
+    }
+
+    /* 头部区域（不再使用横排的Gmail样式） */
+    .header {
+      grid-area: header;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* 左侧竖向菜单 */
+    .nav {
+      grid-area: nav;
+      background-color: #fff;
+      border-right: 1px solid #ccc;
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #555;
+    }
+    .nav-btn .material-icons {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    /* 右侧竖向面板 */
+    .aside {
+      grid-area: aside;
+      background-color: #fff;
+      border-left: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 16px;
+      gap: 20px;
+    }
+
+    .aside .material-icons {
+      font-size: 24px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* 中间主内容区域，放置邮件显示。 
+       注意：这里保留原先的 .email-container 的布局规则，保证其位置与尺寸不变 */
+    .main {
+      grid-area: main;
+      overflow-y: auto;
+      background-color: #f2f2f2;
+      padding: 16px;
+      position: relative; 
+    }
+
+    .email-container {
+      /* 原先的样式保持不变，确保其位置和尺寸不变 */
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      padding: 24px 32px;
+    }
+
+    /* 以下为邮件内容的原样式，可做适度调整 */
+    .email-header-info {
+      margin-bottom: 16px;
+    }
+
+    .email-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+    }
+    .email-toolbar .material-icons {
+      font-size: 20px;
+      color: #5f6368;
+      cursor: pointer;
+    }
+
+    .email-subject {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .email-meta {
+      font-size: 14px;
+      color: #5f6368;
+      margin-bottom: 8px;
+    }
+
+    .email_body {
+      background-color: #f1f3f4;
+      border-radius: 8px;
+      padding: 24px;
+      width: 60%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .email_body h1 {
+      background-color: white;
+      color: black;
+      padding: 12px 16px;
+      font-size: 18px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .email_body p {
+      font-size: 14px;
+      color: #202124;
+      margin-bottom: 12px;
+    }
+    .agree-button, .reject-button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 8px 8px 0;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .email-footer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .email-footer-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 24px;
+      background-color: #f1f3f4;
+      color: #202124;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <!-- 顶部区域 -->
+  <div class="header">
+    <div class="header-title">My Custom Mail System</div>
+  </div>
+
+  <!-- 左侧导航 -->
+  <div class="nav">
+    <button class="nav-btn" title="Home">
+      <span class="material-icons">home</span>
+      Home
+    </button>
+    <button class="nav-btn" title="Notifications">
+      <span class="material-icons">notifications</span>
+      Alerts
+    </button>
+    <button class="nav-btn" title="Drafts">
+      <span class="material-icons">drafts</span>
+      Draft
+    </button>
+  </div>
+
+  <!-- 中间主内容：邮件显示所在区域 -->
+  <div class="main">
+    <div class="email-container">
+      <div class="email-header-info">
+        <!-- 工具栏可自由更换图标与名称 -->
+        <div class="email-toolbar">
+          <span class="material-icons">arrow_right_alt</span>
+          <span class="material-icons">folder_open</span>
+          <span class="material-icons">warning</span>
+          <span class="material-icons">delete_forever</span>
+          <span class="material-icons">done_all</span>
+          <span class="material-icons">inbox</span>
+          <span class="material-icons">menu</span>
+        </div>
+        <div class="email-subject">A great chance!</div>
+        <div style="display: flex;">
+          <div class="email-meta">EVA &lt;1234567890@gmail.com&gt; sent to me</div>
+        </div>
+      </div>
+
+      <div class="email_body">
+        <h1>Welcome to the test email</h1>
+        <p>Hello! This is a sample email used to test the display of HTML emails.</p>
+        <form>
+          <button class="agree-button">Sign me up!</button>
+          <button class="reject-button">Miss out on savings.</button>
+        </form>
+      </div>
+
+      <div class="email-footer-buttons">
+        <button>↩ Reply</button>
+        <button>⇄ Forward</button>
+        <button>😊</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧附加区域 -->
+  <div class="aside">
+    <span class="material-icons" title="Events">event</span>
+    <span class="material-icons" title="Notes">note</span>
+    <span class="material-icons" title="ToDo">fact_check</span>
+    <span class="material-icons" title="People">group</span>
+  </div>
+</div>
+</body>
+</html>

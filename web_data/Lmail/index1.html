@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lmail Mail</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f6f8fc;
+      color: #202124;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 16px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #dadce0;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-left img {
+      height: 32px;
+      margin-right: 8px;
+    }
+
+    .topbar-left span {
+      font-size: 22px;
+      color: #5f6368;
+    }
+
+    .topbar-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-box {
+      width: 720px;
+      padding: 10px 16px;
+      border: 1px solid #dadce0;
+      border-radius: 24px;
+      background-color: #f1f3f4;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-right .material-icons {
+      font-size: 24px;
+      color: #5f6368;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-left: 16px;
+      cursor: pointer;
+      background-color: #e0e0e0;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 256px;
+      height: calc(100vh - 64px);
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      padding: 16px 0;
+    }
+
+    .compose-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #c2e7ff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 20px;
+      margin: 0 auto 16px;
+      font-weight: bold;
+      width: 80%;
+      cursor: pointer;
+    }
+
+    .compose-button .material-icons {
+      margin-right: 8px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0 16px;
+    }
+
+    .sidebar li {
+      display: flex;
+      align-items: center;
+      padding: 10px 8px;
+      font-size: 14px;
+      color: #202124;
+      cursor: pointer;
+    }
+
+    .sidebar .material-icons {
+      font-size: 20px;
+      margin-right: 16px;
+      color: #5f6368;
+    }
+
+    /* The content area wrapping main content and right panel */
+    .content-wrapper {
+      position: absolute;
+      top: 64px;
+      left: 256px;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      height: calc(100vh - 64px);
+      background-color: #f6f8fc;
+    }
+
+    /* Main Content Area */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .email-container {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      padding: 24px 32px;
+    }
+
+    .email-card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .email-subject {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .email-meta {
+      font-size: 14px;
+      color: #5f6368;
+      margin-bottom: 8px;
+    }
+
+    .translate {
+      color: #1a73e8;
+      font-size: 14px;
+      margin-bottom: 20px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .email-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+    }
+
+    .email-toolbar .material-icons {
+      font-size: 20px;
+      color: #5f6368;
+      cursor: pointer;
+    }
+
+    .email_body {
+      background-color: #f1f3f4;
+      border-radius: 8px;
+      padding: 24px;
+      width: 50%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .email_body h1 {
+      background-color: white;
+      color: black;
+      padding: 12px 16px;
+      font-size: 18px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .email_body p {
+      font-size: 14px;
+      color: #202124;
+      margin-bottom: 12px;
+    }
+
+    .img-placeholder {
+      width: 120px;
+      height: 80px;
+      background-color: #e0e0e0;
+      margin: 12px auto;
+      line-height: 80px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .agree-button,.reject-button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 8px 8px 0;
+      font-size: 14px;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #5f6368;
+      margin-top: 24px;
+    }
+
+    .email-footer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .email-footer-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 24px;
+      background-color: #f1f3f4;
+      color: #202124;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      width: 72px;
+      background-color: #ffffff;
+      border-left: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 16px;
+    }
+
+    .right-panel .material-icons {
+      font-size: 24px;
+      color: #5f6368;
+      margin: 16px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+    </div>
+    <div class="topbar-center">
+      <input type="text" class="search-box" placeholder="Search mail">
+    </div>
+    <div class="topbar-right">
+      <span class="material-icons" title="Help">help_outline</span>
+      <span class="material-icons" title="Settings">settings</span>
+      <span class="material-icons" title="Apps">apps</span>
+      <div class="avatar" title="Account"></div>
+    </div>
+  </div>
+
+  <!-- Left Sidebar -->
+  <div class="sidebar">
+    <button class="compose-button"><span class="material-icons">edit</span> Compose</button>
+    <ul>
+      <li><span class="material-icons">inbox</span> Inbox</li>
+      <li><span class="material-icons">star</span> Starred</li>
+      <li><span class="material-icons">schedule</span> Snoozed</li>
+      <li><span class="material-icons">send</span> Sent</li>
+      <li><span class="material-icons">drafts</span> Drafts</li>
+      <li><span class="material-icons">expand_more</span> More</li>
+    </ul>
+  </div>
+
+  <!-- Main Content + Right Panel -->
+  <div class="content-wrapper">
+
+    <!-- Main Content Area -->
+    <div class="main">
+      <div class="email-container">
+        <div class="email-header">
+          <div class="email-header-info">
+            <!-- This section needs a top bar, from left to right: a back button, etc. -->
+            <div class="email-toolbar">
+              <span class="material-icons">arrow_back</span>
+              <span class="material-icons">archive</span>
+              <span class="material-icons">report</span>
+              <span class="material-icons">delete</span>
+              <span class="material-icons">mark_email_read</span>
+              <span class="material-icons">move_to_inbox</span>
+              <span class="material-icons">more_vert</span>
+            </div>
+
+            <div class="email-subject">A great chance!</div>
+            <div style="display: flex;">
+              <div class="email-meta">AutoEIA &lt;1234567890@gmail.com&gt; sent to me</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="email_body">
+          <h1>Welcome to the test email</h1>
+          <p>Hello! This is a sample email used to test the display of HTML emails.</p>
+          <form>
+            <button class="agree-button">Sign me up!</button>
+            <button class="reject-button">Miss out on savings.</button>
+          </form>
+        </div>
+
+        <div class="email-footer-buttons">
+          <button>↩ Reply</button>
+          <button>⇄ Forward</button>
+          <button>😊</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <span class="material-icons" title="Calendar">event</span>
+      <span class="material-icons" title="Keep">lightbulb</span>
+      <span class="material-icons" title="Tasks">check_circle</span>
+      <span class="material-icons" title="Contacts">contacts</span>
+    </div>
+  </div>
+
+</body>
+</html>

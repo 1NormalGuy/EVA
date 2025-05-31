@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+  <!-- Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>FoodExpress</title>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="navigation">
+      <div class="container">
+        <nav class="nav">
+          <div class="nav__hamburger">
+            <svg>
+              <use xlink:href="./images/sprite.svg#icon-menu"></use>
+            </svg>
+          </div>
+
+          <div class="nav__logo">
+            <a href="/" class="scroll-link">
+              FOODEXPRESS
+            </a>
+          </div>
+
+          <div class="nav__menu">
+            <div class="menu__top">
+              <span class="nav__category">FOODEXPRESS</span>
+              <a href="#" class="close__toggle">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                </svg>
+              </a>
+            </div>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#header" class="nav__link scroll-link">Home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#category" class="nav__link scroll-link">Categories</a>
+              </li>
+              <li class="nav__item">
+                <a href="#news" class="nav__link scroll-link">Blog</a>
+              </li>
+              <li class="nav__item">
+                <a href="#contact" class="nav__link scroll-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav__icons">
+            <a href="#" class="icon__item" id="login-btn">
+              <svg class="icon__user">
+                <use xlink:href="./images/sprite.svg#icon-user"></use>
+              </svg>
+            </a>
+
+            <a href="#" class="icon__item" id="search-btn">
+              <svg class="icon__search">
+                <use xlink:href="./images/sprite.svg#icon-search"></use>
+              </svg>
+            </a>
+
+            <a href="#" class="icon__item" id="cart-btn">
+              <svg class="icon__cart">
+                <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
+              </svg>
+              <span id="cart__total">3</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Hero -->
+    <div class="hero">
+      <div class="glide" id="glide_1">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <li class="glide__slide">
+              <div class="hero__center">
+                <div class="hero__left">
+                  <span class="">Fresh Food Delivery 2025</span>
+                  <h1 class="">DELICIOUS MEALS DELIVERED TO YOU!</h1>
+                  <p>Order from our selection of premium restaurants and local favorites</p>
+                  <a href="#"><button class="hero__btn">ORDER NOW</button></a>
+                </div>
+                <div class="hero__right">
+                  <div class="hero__img-container">
+                    <img class="banner_01" src="./images/pizza.jpg" alt="Pizza banner" />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="glide__slide">
+              <div class="hero__center">
+                <div class="hero__left">
+                  <span>Fast & Fresh Delivery</span>
+                  <h1>FOOD DELIVERED IN 30 MINUTES!</h1>
+                  <p>Get your favorite meals delivered hot and fresh to your doorstep</p>
+                  <a href="#"><button class="hero__btn">ORDER NOW</button></a>
+                </div>
+                <div class="hero__right">
+                  <img class="banner_02" src="./images/burger.jpg" alt="Burger banner" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+        </div>
+
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+            <svg>
+              <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use>
+            </svg>
+          </button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+            <svg>
+              <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="auth">
+      <form action="" class="login-form">
+        <h3>Login Now</h3>
+        <input type="email" placeholder="your email" class="box">
+        <input type="password" placeholder="your password" class="box">
+        <p>forget your password <a href="#">Click Here</a></p>
+        <p>don't have an account <a href="#">Create now</a></p>
+        <input type="submit" value="Login now" class="btn">
+      </form>
+    </div>
+    <div class="searchF">
+      <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="Search for food...">
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+    </div>
+
+    <div class="shopping-cart">
+      <div class="box">
+        <i class="fas fa-trash"></i>
+        <img src="images/pizza_margherita.jpg">
+        <div class="content">
+          <h3>Margherita Pizza</h3>
+          <span class="price">$14.99/-</span>
+          <span class="quantity">qty : 1</span>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-trash"></i>
+        <img src="images/caesar_salad.jpg">
+        <div class="content">
+          <h3>Caesar Salad</h3>
+          <span class="price">$8.99/-</span>
+          <span class="quantity">qty : 1</span>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-trash"></i>
+        <img src="images/chocolate_cake.jpg">
+        <div class="content">
+          <h3>Chocolate Cake</h3>
+          <span class="price">$6.99/-</span>
+          <span class="quantity">qty : 1</span>
+        </div>
+      </div>
+      <div class="total">Total : $30.97/-</div>
+      <a href="#" class="btn">Checkout</a>
+    </div>
+
+  </header>
+  <!-- End Header -->
+
+  <!-- Main -->
+  <main id="main">
+    <div class="container">
+      <!-- Collection -->
+      <section id="collection" class="section collection">
+        <div class="collection__container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="collection__box">
+            <div class="img__container">
+              <img class="collection_02" src="./images/healthy_salads.jpg" alt="Healthy food">
+            </div>
+            <div class="collection__content">
+              <div class="collection__data">
+                <span>Fresh & Nutritious</span>
+                <h1>HEALTHY OPTIONS</h1>
+                <a href="#shop">ORDER NOW</a>
+              </div>
+            </div>
+          </div>
+          <div class="collection__box">
+            <div class="img__container">
+              <img class="collection_01" src="./images/fast_food.jpg" alt="Fast food">
+            </div>
+            <div class="collection__content">
+              <div class="collection__data">
+                <span>Quick & Delicious</span>
+                <h1>FAST FOOD</h1>
+                <a href="#">ORDER NOW</a>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <!-- Latest Products -->
+      <section class="section latest__products" id="latest">
+        <div class="title__container">
+          <div class="section__title active" data-id="Featured Restaurants">
+            <span class="dot"></span>
+            <h1 class="primary__title">Featured Restaurants</h1>
+          </div>
+        </div>
+        <div class="container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="glide" id="glide_2">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides latest-center">
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <img src="/images/italian_restaurant.jpg" alt="Italian restaurant">
+                    </div>
+                    <div class="product__footer">
+                      <h3>Bella Italia</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>Italian Cuisine</h4>
+                      </div>
+                      <a href="#"><button type="submit" class="product__btn">View Menu</button></a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Add To Favorites" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-heart-o"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Compare" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <img src="/images/sushi_restaurant.jpg" alt="Sushi restaurant">
+                    </div>
+                    <div class="product__footer">
+                      <h3>Sushi Master</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>Japanese Cuisine</h4>
+                      </div>
+                      <a href="#"><button type="submit" class="product__btn">View Menu</button></a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Add To Favorites" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-heart-o"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Compare" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <img src="/images/burger_restaurant.jpg" alt="Burger restaurant">
+                    </div>
+                    <div class="product__footer">
+                      <h3>Burger House</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>American Cuisine</h4>
+                      </div>
+                      <a href="#"><button type="submit" class="product__btn">View Menu</button></a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Add To Favorites" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-heart-o"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Compare" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <img src="/images/indian_restaurant.jpg" alt="Indian restaurant">
+                    </div>
+                    <div class="product__footer">
+                      <h3>Spice Palace</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>Indian Cuisine</h4>
+                      </div>
+                      <a href="#"><button type="submit" class="product__btn">View Menu</button></a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Add To Favorites" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-heart-o"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Compare" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <img src="./images/thai_restaurant.jpg" alt="Thai restaurant">
+                    </div>
+                    <div class="product__footer">
+                      <h3>Thai Delight</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>Thai Cuisine</h4>
+                      </div>
+                      <a href="#"><button type="submit" class="product__btn">View Menu</button></a>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Add To Favorites" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-heart-o"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a data-tip="Compare" data-place="left" href="#">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use>
+                </svg>
+              </button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="category__section section" id="category">
+        <div class="tab__list">
+          <div class="title__container tabs">
+            <div class="section__titles category__titles">
+              <div class="section__title filter-btn active" data-id="All Cuisines">
+                <span class="dot"></span>
+                <h1 class="primary__title">All Cuisines</h1>
+              </div>
+            </div>
+            <div class="section__titles">
+              <div class="section__title filter-btn" data-id="Italian">
+                <span class="dot"></span>
+                <h1 class="primary__title">Italian</h1>
+              </div>
+            </div>
+
+            <div class="section__titles">
+              <div class="section__title filter-btn" data-id="Asian">
+                <span class="dot"></span>
+                <h1 class="primary__title">Asian</h1>
+              </div>
+            </div>
+
+            <div class="section__titles">
+              <div class="section__title filter-btn" data-id="Fast Food">
+                <span class="dot"></span>
+                <h1 class="primary__title">Fast Food</h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="category__container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="category__center"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Popular Dishes Section -->
+    <section class="section popular-dishes" id="popular-dishes">
+      <div class="container">
+        <div class="title__container">
+          <div class="section__titles">
+            <div class="section__title active">
+              <span class="dot"></span>
+              <h1 class="primary__title">Popular Dishes</h1>
+            </div>
+          </div>
+        </div>
+        <div class="popular-dishes__container">
+          <div class="dish-card">
+            <img src="./images/pizza_pepperoni.jpg" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p>Classic pepperoni pizza with mozzarella cheese</p>
+            <div class="dish-price">$16.99</div>
+            <button class="order-btn">Add to Cart</button>
+          </div>
+          <div class="dish-card">
+            <img src="./images/pasta_carbonara.jpg" alt="Pasta Carbonara">
+            <h3>Pasta Carbonara</h3>
+            <p>Spaghetti with a creamy sauce, bacon and parmesan</p>
+            <div class="dish-price">$14.99</div>
+            <button class="order-btn">Add to Cart</button>
+          </div>
+          <div class="dish-card">
+            <img src="./images/sushi_combo.jpg" alt="Sushi Combo">
+            <h3>Sushi Combo</h3>
+            <p>Assorted fresh sushi with soy sauce and wasabi</p>
+            <div class="dish-price">$22.99</div>
+            <button class="order-btn">Add to Cart</button>
+          </div>
+          <div class="dish-card">
+            <img src="./images/chicken_tikka.jpg" alt="Chicken Tikka Masala">
+            <h3>Chicken Tikka Masala</h3>
+            <p>Tender chicken in a spiced tomato-based sauce</p>
+            <div class="dish-price">$18.99</div>
+            <button class="order-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facility Section -->
+    <section class="facility__section section" id="facility">
+      <div class="container">
+        <div class="facility__contianer" data-aos="fade-up" data-aos-duration="1200">
+          <div class="facility__box">
+            <div class="facility-img__container">
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-airplane"></use>
+              </svg>
+            </div>
+            <p>FREE DELIVERY OVER $25</p>
+          </div>
+
+          <div class="facility__box">
+            <div class="facility-img__container">
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-credit-card-alt"></use>
+              </svg>
+            </div>
+            <p>100% MONEY BACK GUARANTEE</p>
+          </div>
+
+          <div class="facility__box">
+            <div class="facility-img__container">
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
+              </svg>
+            </div>
+            <p>MANY PAYMENT OPTIONS</p>
+          </div>
+
+          <div class="facility__box">
+            <div class="facility-img__container">
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-headphones"></use>
+              </svg>
+            </div>
+            <p>24/7 CUSTOMER SUPPORT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Testimonial Section -->
+    <section class="section testimonial" id="testimonial">
+      <div class="testimonial__container">
+        <div class="glide" id="glide_4">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div class="testimonial__box">
+                  <div class="client__image">
+                    <img src="./images/customer1.jpg" alt="profile">
+                  </div>
+                  <p>The food delivery was incredibly fast and everything arrived hot. The burger was juicy and delicious - exactly how I like it! Will definitely order again from FoodExpress.</p>
+                  <div class="client__info">
+                    <h3>Sarah Johnson</h3>
+                    <span>Regular Customer</span>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="testimonial__box">
+                  <div class="client__image">
+                    <img src="./images/customer2.jpg" alt="profile">
+                  </div>
+                  <p>I was impressed by the quality of packaging. Even after a 30-minute delivery, my sushi was fresh and perfectly arranged. The app is also very user-friendly and makes ordering a breeze.</p>
+                  <div class="client__info">
+                    <h3>Michael Chen</h3>
+                    <span>Food Blogger</span>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="testimonial__box">
+                  <div class="client__image">
+                    <img src="./images/customer3.jpg" alt="profile">
+                  </div>
+                  <p>FoodExpress has the widest selection of restaurants in the city. Their customer service is exceptional - when my order was slightly delayed, they immediately offered a discount on my next purchase.</p>
+                  <div class="client__info">
+                    <h3>Emily Rodriguez</h3>
+                    <span>Food Enthusiast</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="glide__bullets" data-glide-el="controls[nav]">
+            <button class="glide__bullet" data-glide-dir="=0"></button>
+            <button class="glide__bullet" data-glide-dir="=1"></button>
+            <button class="glide__bullet" data-glide-dir="=2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--News Section  -->
+    <section class="section news" id="news">
+      <div class="container">
+        <div class="title__container">
+          <div class="section__titles">
+            <div class="section__title active">
+              <span class="dot"></span>
+              <h1 class="primary__title">Food Blog</h1>
+            </div>
+          </div>
+        </div>
+        <div class="news__container">
+          <div class="glide" id="glide_5">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <div class="new__card">
+                    <div class="card__header">
+                      <img src="./images/blog_italian.jpg" alt="Italian cuisine blog">
+                    </div>
+                    <div class="card__footer">
+                      <h3>The Secrets of Authentic Italian Pasta</h3>
+                      <span>By Chef Antonio</span>
+                      <p>Discover the traditional techniques behind making perfect pasta from scratch, along with regional sauce variations that will transform your home cooking.</p>
+                      <a href="#"><button>Read More</button></a>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="new__card">
+                    <div class="card__header">
+                      <img src="./images/blog_sushi.jpg" alt="Sushi blog">
+                    </div>
+                    <div class="card__footer">
+                      <h3>A Beginner's Guide to Appreciating Sushi</h3>
+                      <span>By Chef Tanaka</span>
+                      <p>Learn how to distinguish quality sushi, proper etiquette for eating it, and which varieties to try first if you're new to this Japanese delicacy.</p>
+                      <a href="#"><button>Read More</button></a>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="new__card">
+                    <div class="card__header">
+                      <img src="./images/blog_desserts.jpg" alt="Desserts blog">
+                    </div>
+                    <div class="card__footer">
+                      <h3>Decadent Desserts You Can Make in 30 Minutes</h3>
+                      <span>By Pastry Chef Emma</span>
+                      <p>These quick and impressive dessert recipes will satisfy your sweet tooth without keeping you in the kitchen for hours. Perfect for last-minute entertaining!</p>
+                      <a href="#"><button>Read More</button></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NewsLetter -->
+    <section class="section newsletter" id="contact">
+      <div class="container">
+        <div class="newsletter__content">
+          <div class="newsletter__data">
+            <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
+            <p>Get weekly updates on new restaurants, exclusive offers and food trends</p>
+          </div>
+          <form action="#">
+            <input type="email" placeholder="Enter your email address" class="newsletter__email">
+            <a class="newsletter__link" href="#">subscribe</a>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- End Main -->
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer-top__box">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Food Safety</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-location"></use>
+              </svg>
+            </span>
+            123 Food Street, Culinary District, NY 10001, USA
+          </div>
+          <div>
+            <span>
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-envelop"></use>
+              </svg>
+            </span>
+            info@foodexpress.com
+          </div>
+          <div>
+            <span>
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-phone"></use>
+              </svg>
+            </span>
+            +1-555-123-4567
+          </div>
+          <div>
+            <span>
+              <svg>
+                <use xlink:href="./images/sprite.svg#icon-paperplane"></use>
+              </svg>
+            </span>
+            New York, USA
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer-bottom__box">
+
+      </div>
+      <div class="footer-bottom__box">
+
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- PopUp - 保持原有的结构和类名 -->
+  <div class="popup hide__popup">
+    <div class="popup__content">
+      <div class="popup__close">
+        <svg>
+          <use xlink:href="./images/sprite.svg#icon-cross"></use>
+        </svg>
+      </div>
+      <div class="popup__left">
+        <div class="popup-img__container">
+          <img class="popup__img" src="./images/special_offer.jpg" alt="popup">
+        </div>
+      </div>
+      <div class="popup__right">
+        <div class="right__content">
+          <h1>Get <span>20% OFF</span> Your First Order</h1>
+          <p>Sign up to our newsletter and receive 20% off your first food delivery. Fresh meals delivered to your doorstep!</p>
+          <form action="#">
+            <input type="email" placeholder="Enter your email..." class="popup__form">
+            <a href="#">Subscribe Now</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go To -->
+  <a href="#header" class="goto-top scroll-link">
+    <svg>
+      <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+    </svg>
+  </a>
+
+  <!-- Glide Carousel Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+  <!-- Animate On Scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="./js/products.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/slider.js"></script>
+
+</body>
+
+</html>
